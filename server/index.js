@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ limi:"30mb",extended:true}));
 app.use(cors());
 
 const CONNECTION_URL ='mongodb+srv://tanvi_agrawal_project:tanviagrawal17042003@cluster0.mqtiaoq.mongodb.net/?retryWrites=true&w=majority';
-const PORT = process.env.PORT || 5069 ;
+const PORT = process.env.PORT || 8000 ;
 mongoose.set('strictQuery',false);
 mongoose.connect(CONNECTION_URL,
      {useNewUrlParser: true, useUnifiedTopology:true })
