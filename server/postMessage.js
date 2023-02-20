@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
 
 const postSchema=mongoose.Schema({
-    "name":String,
-    "_id":String
+    "name":String
 });
-const postMessage=mongoose.model('postMessage',postSchema);
-export default postMessage;
+const peterson=mongoose.model('peterson',postSchema);
+export default peterson;

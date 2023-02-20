@@ -1,6 +1,7 @@
 import express from 'express';
+import peterson from '../postMessage.js';
+import postMessage from '../postMessage.js';
 
-// import { getPosts,createPost} from '../controllers/posts.js'
 
 const router =express.Router();
 
@@ -9,7 +10,7 @@ const router =express.Router();
 router.get('/',async(req,resp) =>{
     
     try {
-        const postMessages=await postMessage.find();
+        const postMessages=await peterson.find();
         resp.status(200).json(postMessages);
         return;
     } catch (error) {
@@ -21,12 +22,12 @@ router.get('/',async(req,resp) =>{
 
 const createPosts=async(req,resp) =>{
     const post=req.body;
-    const newPost=new postMessage(post);
+    //const newPost=new postMessage(post);
     try {
         await post.save();
-        resp.status(201).json(newPost);
+        resp.status(201).json(post);
         console.log(resp);
-        console.log(postMessage);
+        console.log(post);
         return;
     } catch (error) {
         resp.status(409).json({message:error.message})
@@ -35,7 +36,7 @@ const createPosts=async(req,resp) =>{
     }
 }
 
-router.post('/posts',createPosts)
+router.post('/',createPosts)
 
 // router.get('/', getPosts);
 // router.get('/', createPost);

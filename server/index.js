@@ -11,12 +11,12 @@ const app =express();
 
 // var MongoClient = mongo.MongoClient;
 
-app.use('/posts',postRoutes);
+app.use('/',postRoutes);
 app.use(bodyParser.json({ limi:"30mb",extended:true}));
 app.use(bodyParser.urlencoded({ limi:"30mb",extended:true}));
 app.use(cors());
 
-const CONNECTION_URL ='mongodb+srv://tanvi_agrawal_project:tanviagrawal17042003@cluster0.mqtiaoq.mongodb.net/?retryWrites=true&w=majority';
+const CONNECTION_URL ='mongodb+srv://tanvi_agrawal_project:tanviagrawal17042003@cluster0.mqtiaoq.mongodb.net/os?retryWrites=true&w=majority';
 
 const PORT = process.env.PORT || 7000;
 mongoose.set('strictQuery',false);
